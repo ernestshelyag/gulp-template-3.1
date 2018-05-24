@@ -1,0 +1,72 @@
+include ../../assets/bemto/bemto
+-
+  set_bemto_settings({
+  prefix: '',
+  element: '__',
+  modifier: '_'
+  })
+
+include ./common/vars
+block variables
+
+mixin icon(name, mod)
+  - mod = mod || ''
+  svg(class = mod + '__icon icon ' + name)
+    use(xlink:href = 'img/sprite.svg#' + name)
+
+// - - - - -
+
+doctype html
+html(lang='ru')
+
+  head
+
+    meta(charset='utf-8')
+    title #{title}
+    meta(content='', name='author')
+    meta(content='', name='description')
+
+    base(target='_blank')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='HandheldFriendly', content='true')
+    meta(name='format-detection', content='telephone=no')
+    meta(content='IE=edge', http-equiv='X-UA-Compatible')
+
+    link(rel='shortcut icon', href='img/favicon/favicon.png', type='image/x-icon')
+    link(rel='apple-touch-icon', href='img/favicon/apple-touch-icon.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='img/favicon/apple-touch-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='img/favicon/apple-touch-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='img/favicon/apple-touch-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='img/favicon/apple-touch-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='img/favicon/apple-touch-icon-180x180.png')
+
+    link(href='https://fonts.googleapis.com/css?family=Source+Code+Pro', rel='stylesheet')
+
+    <!--[if lt IE 9]>
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js')
+    <![endif]-->
+
+    link(rel='stylesheet', href='css/vendors.min.css')
+    link(rel='stylesheet', href='css/app.min.css')
+
+  body(class=bodyFlex ? 'body-flex' : '')
+
+    <!--[if lt IE 8]>
+    p(style='padding: 20px;')
+      | Вы используете старую версию браузера.
+      | Пожалуйста
+      a(href='http://browsehappy.com/', style='padding: 0 5px; font-weight: bold; text-transform: uppercase; color: blue;', target='_self') обновите ваш браузер
+      | перейдя по ссылке.
+    <![endif]-->
+
+    +b.SPAN.preloader
+      //+e.SPAN.pulse
+
+    block content
+
+    script(src='js/vendors.min.js')
+    script(src='js/main.min.js')
+
+    script(src='https://use.fontawesome.com/releases/v5.0.10/js/all.js')
+

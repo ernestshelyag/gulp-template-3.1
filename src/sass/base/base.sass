@@ -1,0 +1,78 @@
+$browser-context: 16 // Default
+
+@function em($pixels, $context: $browser-context)
+  @return #{$pixels/$context}em
+
+*, *:before, *:after
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+*::selection
+  background: rgba($main-col,.93)
+  color: white
+
+html
+  text-size-adjust: none
+
+body
+  +main-font
+  position: relative
+  min-width: 320px
+  font-size: 16px
+  color: $font-col
+
+main
+  position: relative
+
+a
+  +tr
+  display: inline-block
+  color: $font-col
+  &:hover
+    color: $main-col
+    text-decoration: none
+
+h1, h2, h3, h4, h5
+  color: #000
+  font-weight: 500
+h1
+  font-size: 40px
+h2
+  font-size: 30px
+h3
+  font-size: 24px
+h4
+  font-size: 18px
+h5
+  font-size: 16px
+
+// forms
+
+input,
+select,
+textarea,
+button
+  +main-font
+  color: $font-col
+  background: transparent
+  border: none
+  outline: none
+
+button
+  cursor: pointer
+
+=placeholder-color($color)
+  &::-webkit-input-placeholder  /* WebKit browsers */
+      color: $color
+      opacity: .5
+  &:-moz-placeholder  /* Mozilla Firefox 4 to 18 */
+      color: $color
+      opacity: .5
+  &::-moz-placeholder  /* Mozilla Firefox 19+ */
+      color: $color
+      opacity: .5
+  &:-ms-input-placeholder  /* Internet Explorer 10+ */
+      color: $color
+      opacity: .5
+
++placeholder-color($font-col)

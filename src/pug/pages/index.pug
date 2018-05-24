@@ -1,0 +1,18 @@
+extends ../template
+
+block variables
+    - var title = 'Home page'
+    - var bodyFlex = false
+
+block content
+
+    include ../common/header
+
+    +b.MAIN.main(class=bodyFlex ? 'main-flex' : '')
+        span main
+
+    include ../common/footer
+
+
+
+

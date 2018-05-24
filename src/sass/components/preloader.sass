@@ -1,0 +1,45 @@
+@mixin opacity($opacity)
+  opacity: $opacity / 100
+  filter: alpha(opacity = $opacity)
+
+.preloader
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  z-index: 1000
+  background: #fff
+  &__pulse
+    position: relative
+    left: 50%
+    top: 50vh
+    margin: -40px 0 0 -40px
+    display: block
+    &:before, &:after
+      content: ''
+      border: solid 5px $main-col
+      width: 80px
+      height: 80px
+      border-radius: 50%
+      position: absolute
+    &:before
+      animation: pulse-out 2s ease-in infinite
+    &:after
+      animation: pulse-in 2s linear infinite
+
+@keyframes pulse-out
+  from
+    @include opacity(100)
+  50%
+    @include opacity(50)
+  to
+    @include opacity(0)
+
+@keyframes pulse-in
+  from
+    @include opacity(0)
+    transform: scale(0)
+  to
+    @include opacity(100)
+    transform: scale(1)

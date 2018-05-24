@@ -1,0 +1,15 @@
+extends ../template
+
+block variables
+    - var title = 'About'
+    - var bodyFlex = true
+
+block content
+
+    include ../common/header
+
+    +b.MAIN.about(class=bodyFlex ? 'main-flex' : '')
+        span about
+
+
+    include ../common/footer

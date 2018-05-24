@@ -1,0 +1,38 @@
+// colors
+
+$font-col: #3F716E
+
+$main-col: #00D5CA
+$main-col-med: #00C6BD
+$main-col-dark: #00B5AC
+
+// responsive
+
+$wide: 1366
+$note: 1024
+$tablet: 768
+$mobile: 568
+$mobile-s: 414
+
+// fonts
+
+=main-font
+  font-family: 'muller', Helvetica, sans-serif
+
+=secondary-font
+  font-family: 'Source Code Pro', monospace
+  font-weight: bold
+
+=font-face($font-family, $file-path, $weight: normal, $style: normal)
+  @font-face
+    font-family: $font-family
+    src: url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.woff') format('woff')
+    font-weight: $weight
+    font-style: $style
+
+
++font-face('muller', '../fonts/mullerregular-webfont', 400)
++font-face('muller', '../fonts/mullermedium-webfont', 500)
++font-face('muller', '../fonts/mullerbold-webfont', 700)
++font-face('muller', '../fonts/mullerregularitalic-webfont', 400, italic)
++font-face('muller', '../fonts/mullermediumitalic-webfont', 500, italic)
